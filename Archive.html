@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: "Noto Sans KR", sans-serif;
+        }
+
+        .navibar {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 127px;
+        }
+
+        .navibar .logo img {
+            height: 60px;
+        }
+
+        .navibar .menu {
+            display: flex;
+            align-items: center;
+        }
+
+        .navibar .menu a {
+            color: #555555;
+            text-decoration: none;
+            padding: 0 30px;
+            transition: color 0.3s;
+            font-size: 21px;
+        }
+
+        .navibar .menu a:hover {
+            color: #ddd;
+        }
+
+        .navibar .menu img {
+            height: 36px;
+        }
+
+        .conA {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .conA2 {
+            width: 60%;
+            height: 50%;
+            display: flex;
+            gap: 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .conA3 {
+            display: flex;
+            flex-flow: column;
+            width: 30%;
+        }
+
+        .conA3 h1 {
+            margin-bottom: 30px;
+        }
+
+        .conA4 {
+            width: 70%;
+        }
+
+        .parent {
+            height: 100%;
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            grid-template-rows: repeat(4, 1fr);
+            grid-column-gap: 12px;
+            grid-row-gap: 12px;
+        }
+
+        h1 {
+            font-size: 48px;
+        }
+
+        .div1 h1 {
+            font-size: 36px;
+            font-weight: 400;
+        }
+
+        .parent * {
+            border-radius: 6px;
+        }
+
+        .div1 {
+            grid-area: 1 / 1 / 3 / 4;
+            background-color: #b267ff;
+            color: #ffffff;
+            padding: 30px;
+            font-size: 48px;
+            font-weight: 600;
+        }
+
+        .div2 {
+            grid-area: 1 / 4 / 3 / 5;
+            background-color: #000000;
+            color: #FFFFFF;
+            padding: 30px;
+        }
+
+        .div3 {
+            grid-area: 1 / 5 / 3 / 7;
+            background-color: #000000;
+            color: #FFFFFF;
+            padding: 30px;
+            font-size: 20px;
+        }
+
+        .div4 {
+            grid-area: 3 / 2 / 5 / 4;
+            background-color: #24fedc;
+            padding: 30px;
+            font-size: 48px;
+            font-weight: 600;
+        }
+
+        .div5 {
+            grid-area: 3 / 4 / 5 / 7;
+            background-color: #fab222;
+            padding: 30px;
+            font-size: 48px;
+            font-weight: 600;
+        }
+
+        .conB {
+            width: 100%;
+            background-color: #f3f0ff;
+            height: 100vh;
+            padding-top: 200px;
+        }
+
+        .conB {
+            display: flex;
+            flex-flow: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .conB2 {
+            width: 60%;
+            padding-top: 126px;
+            margin-bottom: 200px;
+        }
+
+        .conC{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-flow: column;
+            margin-top: 400px;
+        }
+
+        .conC2{
+            width: 60%;
+            display: flex;
+            flex-flow: column;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .conC2 h3{
+            font-size: 36px;
+            color: #444444;
+        }
+
+
+        .conB2 h3 {
+            font-size: 36px;
+            color: #444444;
+        }
+
+        .conB2 h4 {
+            font-size: 24px;
+            color: #b3b3b3;
+        }
+
+        .review {
+            background-color: #8779ff;
+            border: none;
+            border-radius: 60px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            padding: 12px 36px;
+            gap: 9px;
+            color: #ffffff;
+            font-size: 24px;
+            font-weight: 700;
+            margin-top: 45px;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: scale(1);
+            }
+            40% {
+                transform: scale(1.2);
+            }
+            60% {
+                transform: scale(0.9);
+            }
+        }
+
+        .bounce {
+            animation: bounce 0.5s forwards;
+        }
+
+        .circle-bg {
+            position: absolute;
+            border-radius: 50%;
+            background-color: #f3f0ff;
+            width: 0;
+            height: 0;
+            z-index: 0;
+            transform: scale(0);
+            transition: transform 2s ease;
+        }
+
+        .conA3 img:hover {
+            transform: scale(1.2);
+        }
+
+        .conA3 img {
+            transition: all ease 0.3s;
+        }
+
+        .textbox{
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+        }
+
+        .slider-container {
+        overflow: hidden;
+        width: 100%; /* 슬라이더 너비 */
+        height: 1000px; /* 슬라이더 높이 */
+        border-radius: 10px;
+        background-color: #f3f0ff;
+    }
+
+    .slider {
+        display: flex;
+        height: 800px;
+        animation: scrollSlider 20s linear infinite;
+        width: calc(100% * 9); /* 이미지 세트 개수에 따라 너비를 조정 */
+        gap: 120px;
+    }
+
+    #img-set2{
+        padding-top: 100px;
+    }
+
+    .image-set {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .image-set img {
+        width: 80%;
+    }
+
+    .slidecontainer {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .slidecontainer {
+        opacity: 0; /* 처음에는 보이지 않음 */
+        transform: translateY(50px); /* 아래에서 위로 올라오는 효과 */
+        transition: opacity 1s ease-out, transform 1s ease-out; /* 효과 부드럽게 */
+    }
+
+    .slidecontainer.active {
+        opacity: 1; /* 스크롤 위치에 도달하면 보이게 */
+        transform: translateY(0); /* 원래 위치로 */
+    }
+
+    .slidetext{
+        position: absolute;
+        padding: 40px;
+        font-size: 24px;
+        color: #FFFFFF;
+    }
+
+    .slidetext2{
+        position: absolute;
+        padding: 40px;
+        font-size: 24px;
+        color: #444444;
+    }
+
+
+    @keyframes scrollSlider {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(calc(-100% / 9 * 10)); /* 전체 슬라이더 길이의 10배 */
+        }
+    }
+
+    .imgbox {
+        padding-top: 200px;
+            display: flex;
+            flex-wrap: wrap; /* Flex 아이템을 줄 바꿈 */
+            gap: 20px; /* 이미지 간의 간격 */
+            justify-content: center; /* 이미지 중앙 정렬 */
+            padding: 20px; /* 패딩 추가 */
+        }
+
+        .imgbox img {
+            width: calc(50% - 10px); /* 두 개씩 정렬할 수 있도록 너비를 50%로 설정하고 간격 보정 */
+            height: auto; /* 높이를 자동으로 유지 */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 이미지에 그림자 추가 */
+            border-radius: 8px; /* 이미지에 둥근 모서리 추가 */
+            transition: transform 0.2s ease-in-out, opacity 1s ease-in-out; /* 이미지에 마우스 오버 및 페이드 인 효과 추가 */
+            opacity: 0; /* 초기 상태에서 이미지가 보이지 않도록 설정 */
+            transform: translateY(50px); /* 초기 상태에서 아래쪽으로 이동한 위치 */
+        }
+
+        .imgbox img.show {
+            opacity: 1; /* 스크롤에 의해 보이게 될 때 */
+            transform: translateY(0); /* 스크롤에 의해 위치가 원래대로 돌아옴 */
+        }
+
+        
+      .foot {
+        margin-top: 300px;
+        display: flex;
+        width: 100vw;
+        justify-content: center;
+      }
+
+      .footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #272727;
+        color: white;
+        position: relative;
+        width: 100%;
+        max-width: 1920px;
+        height: 320px;
+      }
+
+      .footer .Flogo img {
+        height: 80px;
+        margin-left: 320px;
+        margin-bottom: 47px;
+        margin-top: 193px;
+      }
+
+      .footer .Fmenu {
+        display: flex;
+        margin-bottom: 47px;
+        margin-top: 193px;
+        margin-right: 320px;
+      }
+
+      .footer .Fmenu a {
+        color: #ffffff;
+        text-decoration: none;
+        padding: 0 60px;
+        transition: color 0.3s;
+        font-weight: lighter;
+      }
+
+      .footer .Fmenu a:hover {
+        color: #ddd;
+      }
+
+      .footer .line {
+        width: 100%;
+        height: 1px;
+        background-color: #797979;
+        position: absolute;
+        top: 140px;
+      }
+    
+
+    </style>
+
+</head>
+<body>
+    <div class="navibar">
+        <div class="logo">
+            <a href="">
+                <img src="https://i.postimg.cc/SNSZhmm5/image-13.png" alt="logo">
+            </a>
+        </div>
+        <div class="menu">
+            <a href="index.html">시설 소개</a>
+            <a href="index.html">솔내 뉴스</a>
+            <a href="onlineshow2.html">진행중인 프로그램</a>
+            <a href="index.html">대관 신청</a>
+            <a href="Archive.html">아카이브</a>
+            <a href=""><img src="https://i.postimg.cc/yY07wXYn/search-outline-24px.png" alt="search"></a>
+            <a href=""><img src="https://i.postimg.cc/Qd6wPH50/profile-outline-24px.png" alt="profile"></a>
+        </div>
+    </div>
+
+    <div class="conA" id="conA">
+        <div class="conA2" id="conA2">
+            <div class="conA3">
+                <h1>솔내 아트센터의<br>문화체험을<br>사진으로!</h1>
+                <img src="img01.png" alt="#" width="50%" id="conA3Img">
+            </div>
+            <div class="conA4">
+                <div class="parent">
+                    <div class="div1" id="div1">
+                        <h1>시흥극장의<br>재탄생</h1>
+                    </div>
+                    <div class="div2" id="div2">
+                    </div>
+                    <div class="div3" id="div3">
+                        <p>솔내아트센터<br>3F A.P.T PROJECT</p>
+                        <p>시흥시<br>도시재생사업<br>구 시흥 극장</p>
+                        <p>시민문화예술공간</p>
+                    </div>
+                    <div class="div4" id="div4">보람차요!!</div>
+                    <div class="div5" id="div5">이 많은걸<br>무료로??</div>
+                </div>
+            </div>
+        </div>
+        <div class="circle-bg" id="circleBg"></div>
+    </div>
+
+    <div class="conB">
+        <div class="conB2">
+            <h3>사용자 후기</h3>
+            <h4>솔내아트센터에서 다양한 문화 체험을 즐긴<br>사용자들의 후기에요</h4>
+            <button class="review">
+                후기 남기기
+                <span class="material-symbols-outlined"> arrow_forward </span>
+            </button>
+        </div>
+
+        <div class="slidecontainer">
+            <div class="slider-container">
+                <div class="slider">
+                    <div class="image-set">
+                        <img src="TextBox01.png" alt="이미지 1">
+                        <div class="slidetext">너무 재미있어요!</div>
+                        <img class="realimg" src="slide/slide01.png" alt="이미지 2">
+                    </div>
+                    <div class="image-set" id="img-set2">
+                        <img src="TextBox02.png" alt="이미지 3">
+                        <div class="slidetext2">너무 재미있어요!</div>
+                        <img class="realimg" src="slide/slide02.png" alt="이미지 4">
+                    </div>
+                    <div class="image-set">
+                        <img src="TextBox01.png" alt="이미지 5">
+                        <div class="slidetext">아이들과 함께 봤는데<br>너무 유익했어요!</div>
+                        <img class="realimg" src="slide/slide03.png" alt="이미지 6">
+                    </div>
+                    <div class="image-set" id="img-set2">
+                        <img src="TextBox02.png" alt="이미지 7">
+                        <div class="slidetext2">무료로 이렇게나 좋은<br>연극을 봐서 좋았어요!</div>
+                        <img class="realimg" src="slide/slide04.png" alt="이미지 8">
+                    </div>
+                    <div class="image-set">
+                        <img src="TextBox01.png" alt="이미지 9">
+                        <div class="slidetext">다시 보고싶어요!!</div>
+                        <img class="realimg" src="slide/slide05.png" alt="이미지 10">
+                    </div>
+                    <div class="image-set" id="img-set2">
+                        <img src="TextBox02.png" alt="이미지 11">
+                        <div class="slidetext2">다음에 또 올거에요!</div>
+                        <img class="realimg" src="slide/slide01.png" alt="이미지 12">
+                    </div>
+                    <div class="image-set">
+                        <img src="TextBox01.png" alt="이미지 13">
+                        <div class="slidetext">너무 재미있어요!</div>
+                        <img class="realimg" src="slide/slide02.png"alt="이미지 14">
+                    </div>
+                    <div class="image-set" id="img-set2">
+                        <img src="TextBox02.png" alt="이미지 15">
+                        <div class="slidetext2">너무 재미있어요!</div>
+                        <img class="realimg" src="slide/slide03.png" alt="이미지 16">
+                    </div>
+                    <div class="image-set">
+                        <img src="TextBox01.png" alt="이미지 17">
+                        <div class="slidetext">아이들과 함께 봣는데<br>너무 유익했어요!</div>
+                        <img class="realimg" src="slide/slide04.png" alt="이미지 18">
+                    </div>
+                </div>
+            </div>
+            </div>
+    </div>
+
+    <div class="conC">
+
+        <div class="conC2">
+            <div class="textbox">
+            <h3>아카이브</h3>
+            <button class="review">
+                자세히 보기
+                <span class="material-symbols-outlined"> arrow_forward </span>
+            </button>
+            </div>
+
+            <div class="imgbox">
+                <img src="galley/image 422.png">
+                <img src="galley/image 423.png">
+                <img src="galley/image 424.png">
+                <img src="galley/image 425.png">
+                <img src="galley/image 426.png">
+                <img src="galley/image 427.png">
+                <img src="galley/image 429.png">
+                <img src="galley/image 430.png">
+                <img src="galley/image 431.png">
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="foot">
+        <div class="footer">
+          <div class="Flogo">
+            <a href="">
+              <img src="https://i.postimg.cc/43WcpRDK/image-33.png" alt="logo" />
+            </a>
+          </div>
+          <div class="Fmenu">
+            <a href="">ABOUT</a>
+            <a href="">HELP</a>
+            <a href="">LEGAL</a>
+          </div>
+          <div class="line"></div>
+        </div>
+      </div>
+
+    <script>
+
+document.addEventListener('DOMContentLoaded', function () {
+        const slider = document.querySelector('.slider');
+        const sliderContainer = document.querySelector('.slider-container');
+        
+        // 슬라이더의 너비를 계산 (이미지 집합의 총 너비)
+        const sliderWidth = slider.scrollWidth;
+        const containerWidth = sliderContainer.clientWidth;
+        
+        // 애니메이션의 지속시간을 계산
+        const scrollSpeed = 30; // px 당 이동하는 시간
+        const duration = (sliderWidth - containerWidth) / scrollSpeed;
+        
+        // CSS 애니메이션 속성을 업데이트
+        slider.style.animationDuration = `${duration}s`;
+    });
+        document.addEventListener('DOMContentLoaded', function () {
+            const divs = document.querySelectorAll('.parent div');
+            const conA = document.getElementById('conA');
+            const img = document.getElementById('conA3Img');
+            const circleBg = document.getElementById('circleBg');
+
+            // 이미지 클릭 이벤트
+            img.addEventListener('click', function (e) {
+                // Get image position
+                const rect = img.getBoundingClientRect();
+                const centerX = rect.left + rect.width / 2;
+                const centerY = rect.top + rect.height / 2;
+
+                // Get click position relative to the container
+                const clickX = e.clientX - rect.left;
+                const clickY = e.clientY - rect.top;
+
+                // Set circle position and size
+                const circleSize = Math.max(conA.offsetWidth, conA.offsetHeight) * 2;
+
+                circleBg.style.left = `${centerX - circleSize / 2}px`;
+                circleBg.style.top = `${centerY - circleSize / 2}px`;
+                circleBg.style.width = `${circleSize}px`;
+                circleBg.style.height = `${circleSize}px`;
+
+                // Trigger the animation
+                circleBg.style.transform = 'scale(1)';
+            });
+
+            divs.forEach(div => {
+                div.addEventListener('click', function () {
+                    // 기존에 존재하는 bounce 클래스를 제거하여 애니메이션을 재시작할 수 있게 함
+                    this.classList.remove('bounce');
+                    // 다음 이벤트 루프에 bounce 클래스를 다시 추가
+                    setTimeout(() => {
+                        this.classList.add('bounce');
+                    }, 0);
+                });
+            });
+
+            // div1 클릭 이벤트
+            document.getElementById('div1').addEventListener('click', function () {
+                this.style.backgroundColor = '#ff4b5c'; // 배경색 변경
+                this.innerHTML = '재밌다!!'; // 내용 변경
+            });
+
+            // div2 클릭 이벤트
+            document.getElementById('div2').addEventListener('click', function () {
+                this.innerHTML = '재밌다!!'; // 내용 변경
+            });
+
+            // div3 클릭 이벤트
+            document.getElementById('div3').addEventListener('click', function () {
+                this.style.backgroundColor = '#4caf50'; // 배경색 변경
+                this.innerHTML = '재밌다!!'; // 내용 변경
+            });
+
+            // div4 클릭 이벤트
+            document.getElementById('div4').addEventListener('click', function () {
+                this.style.backgroundColor = '#24FEDC'; // 배경색 변경
+                this.innerHTML = '재밌다!!'; // 내용 변경
+            });
+
+            // div5 클릭 이벤트
+            document.getElementById('div5').addEventListener('click', function () {
+                this.style.backgroundColor = '#ffeb3b'; // 배경색 변경
+                this.innerHTML = '재밌다!!'; // 내용 변경
+            });
+        });
+
+        document.addEventListener("DOMContentLoaded", function() {
+    const slideContainer = document.querySelector('.slidecontainer');
+    const checkScroll = () => {
+        let triggerHeight = window.innerHeight / 1.3; // 화면의 1.3 분의 1 지점에서 활성화
+        if (slideContainer.getBoundingClientRect().top < triggerHeight) {
+            slideContainer.classList.add('active');
+        } else {
+            slideContainer.classList.remove('active');
+        }
+    };
+
+    window.addEventListener('scroll', checkScroll);
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+            const images = document.querySelectorAll('.imgbox img');
+
+            const observerOptions = {
+                root: null, // viewport를 root로 사용
+                rootMargin: '0px',
+                threshold: 0.1 // 이미지가 10% 보이면 애니메이션 실행
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('show');
+                        observer.unobserve(entry.target); // 애니메이션이 한 번 실행되면 관찰을 중지
+                    }
+                });
+            }, observerOptions);
+
+            images.forEach(image => {
+                observer.observe(image);
+            });
+        });
+    </script>
+</body>
+</html>
+
+
+
+
